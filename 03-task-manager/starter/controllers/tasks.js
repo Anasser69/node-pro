@@ -1,8 +1,10 @@
+const Task = require('../modles/Task')
 const getalltasks=(req,res)=>{
     res.send('all items')
 }
-const createtask=(req,res)=>{
-    res.json(req.body)
+const createtask=async (req,res)=>{
+    const task=await Task.create(req.body)
+    res.status(201).json({ task })
 }
 const gettask=(req,res)=>{
     res.json({id:req.params.id})

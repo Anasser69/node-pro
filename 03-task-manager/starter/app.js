@@ -1,14 +1,15 @@
-const express=require('express');
-const app = express();
+
+const express=require('express')
+const app = express()
 const tasks = require('./routes/tasks')
 const connectDB = require('./db/connect')
-require=('dotenv').config
+require('dotenv').config()
 const port = 3000
 // app port
 const start = async()=>{
     try{
-        await connectDB(process.env.MONGO_URI)
-        app.listen( port , console.log(`the server conncetd to port ${port}...`))
+        await connectDB(process.env.MONGOLINK)
+        app.listen( port , console.log(`the server with Db conncetd to port ${port}...`))
     }catch (err){
         console.log(err)
     }
