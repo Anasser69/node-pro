@@ -7,7 +7,6 @@ const morgan = require('morgan')
 const bodyparser=require('body-parser')
 const path=require("path")
 
-
 app.get("/",(req,res)=>{
     res.render('index.ejs');
 })
