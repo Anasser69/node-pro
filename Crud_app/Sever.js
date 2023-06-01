@@ -1,13 +1,16 @@
 const express=require('express');
 const app=express();
 const dotenv=require('dotenv');
-dotenv.config({path:'/Crud_app/config.env'})
+const path=require('path')
+dotenv.config({path:path.resolve(__dirname,'./config.env')})
 const PORT = 3000;
 const morgan = require('morgan')
 const bodyparser=require('body-parser')
-const path=require("path")
 
 
+// Database
+const connectDB = require('./server/database/connection')
+connectDB()
 
 // log request
 app.use(morgan('tiny'))
@@ -25,5 +28,6 @@ app.use('/img',express.static(path.resolve(__dirname,"assets/img")))
 
 // load routes
 app.use('/',require('./server/routes/router'))
+
 
 app.listen(PORT,()=>{console.log(`the app is running at http://localhost:${PORT}`)})
