@@ -15,7 +15,7 @@ const User=new Userdb({
 })
 
 User.save(User)
-.then(data=>{res.send(data)})
+.then(data=>{res.redirect("/")})
 .catch(err=>{
     res.status(500).send({
         message:err.message || "Some error happend"
