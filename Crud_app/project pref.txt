@@ -1,0 +1,2 @@
+it is a CRUD(Create,Remove,Update,Delete) app using html and css and javascript and nodejs and express and ejs and mongoDB
+ all package used in this project are in package.json
